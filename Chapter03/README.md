@@ -99,8 +99,7 @@ $ mvn clean tomcat7:run
 
 ### 3-9  Activiti6.0源码初探-helloword_idea-1
 
-
-1. 先梳理流程
+1、先梳理流程
 
 - 代码清单：DemoMain.java
 ```java
@@ -119,7 +118,7 @@ public class DemoMain {
 
 }
 ```
-1. 配置log，只打印简易信息：
+2、配置log，只打印简易信息：
 
 - 代码清单：logback.xml
 ```xml
@@ -163,9 +162,10 @@ public class DemoMain {
     </root>
 </configuration>
 ```
+3、将流程文件拷贝到 resources 文件夹下：
 
-
-- 完整流程代码
+4、完成完整流程代码
+- 代码清单：DemoMain.java
 ```java
 LOGGER.info("启动我们的程序");
 // 创建流程引擎
@@ -198,6 +198,7 @@ for (Task task : list) {
 LOGGER.info("待处理任务数量 [{}]", list.size());
 LOGGER.info("结束我们的程序");
 ```
+5、测试代码
 - 运行结果：
 ```
 启动我们的程序
