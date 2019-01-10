@@ -119,5 +119,96 @@ public class DemoMain {
 
 }
 ```
+1. 配置log，只打印简易信息：
+
+- 代码清单：logback.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="30 seconds">
+    <property name="log.dir" value="target/logs"/>
+    <property name="encoding" value="UTF-8"/>
+    <property name="plain" value="%msg%n"/>
+    <property name="std" value="%d{HH:mm:ss.SSS}[%thread][%-5level]%msg %X{user} %logger{10}.%M:%L%n"/>
+    <property name="normal" value="%d{yyyy-MM-dd:HH:mm:ss.SSS}[%thread][%-5level] %logger{10}.%M:%L  %msg%n"/>
+    <!-- 控制台输出 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${plain}</pattern>
+            <charset>${encoding}</charset>
+        </encoder>
+    </appender>
+
+    <!-- 时间滚动输出 level为 ALL 日志 -->
+    <appender name="file"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${log.dir}/file.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${log.dir}/file.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${std}</pattern>
+            <charset>${encoding}</charset>
+        </encoder>
+    </appender>
+    <logger name="root">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="com.coderdream">
+        <level value="DEBUG"/>
+    </logger>
+    <root>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="file"/>
+    </root>
+</configuration>
+```
+
+
+- 完整流程代码
+```java
+LOGGER.info("启动我们的程序");
+// 创建流程引擎
+ProcessEngineConfiguration cfg = ProcessEngineConfiguration.createStandaloneInMemProcessEngineConfiguration();
+ProcessEngine processEngine = cfg.buildProcessEngine();
+String name = processEngine.getName();
+String version = ProcessEngine.VERSION;
+LOGGER.info("流程引擎名称{}，版本{}", name, version);
+// 部署流程定义文件
+RepositoryService repositoryService = processEngine.getRepositoryService();
+DeploymentBuilder deploymentBuilder = repositoryService.createDeployment();
+deploymentBuilder.addClasspathResource("second_approve.bpmn");
+Deployment deployment = deploymentBuilder.deploy();
+String deploymentId = deployment.getId();
+ProcessDefinition processDefinition = repositoryService
+        .createProcessDefinitionQuery()
+        .deploymentId(deploymentId)
+        .singleResult();
+LOGGER.info("流程定义文件 [{}]，流程ID [{}]", processDefinition.getName(), processDefinition.getId());
+// 启动运行流程
+RuntimeService runtimeService = processEngine.getRuntimeService();
+ProcessInstance processInstance = runtimeService.startProcessInstanceById(processDefinition.getId());
+LOGGER.info("启动流程 [{}]", processInstance.getProcessDefinitionKey());
+// 处理流程任务
+TaskService taskService = processEngine.getTaskService();
+List<Task> list = taskService.createTaskQuery().list();
+for (Task task : list) {
+    LOGGER.info("待处理任务 [{}]", task.getName());
+}
+LOGGER.info("待处理任务数量 [{}]", list.size());
+LOGGER.info("结束我们的程序");
+```
+- 运行结果：
+```
+启动我们的程序
+流程引擎名称default，版本6.0.0.4
+流程定义文件 [二级审批]，流程ID [second_approve:1:4]
+启动流程 [second_approve]
+待处理任务 [填写审批信息]
+待处理任务数量 [1]
+结束我们的程序
+```
+
+
 ### 3-10  Activiti6.0源码初探-helloword_idea-2
 ### 3-11  Activiti6.0源码初探-helloword_idea-3

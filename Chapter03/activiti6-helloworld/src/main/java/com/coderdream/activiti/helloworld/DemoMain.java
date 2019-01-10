@@ -50,5 +50,4 @@ public class DemoMain {
         LOGGER.info("待处理任务数量 [{}]", list.size());
         LOGGER.info("结束我们的程序");
     }
-
 }
