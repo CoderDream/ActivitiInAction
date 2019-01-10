@@ -7,7 +7,7 @@
 ### 3-4  Activiti6.0源码初探-模块介绍
 ### 3-5  Activiti6.0源码初探-activiti-app运行
 - 设置IDEA控制台：                                                                                                                                                                                         
-![](images/01_IDEA_Setting_Terminal.png)
+![](images/0305_01_IDEA_Setting_Terminal.png)
 - 在控制台执行命令：
 ```
 D:\Java\GitHub\Activiti6>cd modules/activiti-ui/activiti-app
@@ -33,6 +33,23 @@ $ mvn clean tomcat7:run
 ```
 ### 3-6  Activiti6.0源码初探-WebConfigurer
 ### 3-7  Activiti6.0源码初探-helloword-1
+
+- 完整流程图：                                                                                                                                                                                                                 
+![](images/0307_01_Process.png)
+
+- 参考下图新增表单数据（注意类型、模式和是否必填）：                                                                                                                                                                                                                 
+![](images/0307_02_Add_Form.png)
+
+- 【填写审批信息】表单数据：                                                                                                                                                                                                                 
+![](images/0307_03_Form01.png)
+
+- 【主管审批】表单数据：                                                                                                                                                                                                                 
+![](images/0307_04_Form02.png)
+
+- 【人事审批】表单数据：                                                                                                                                                                                                                 
+![](images/0307_05_Form03.png)
+
+
 ### 3-8  Activiti6.0源码初探-helloword-2
 
 - 代码清单：pom.xml
@@ -81,6 +98,9 @@ $ mvn clean tomcat7:run
 ```
 
 ### 3-9  Activiti6.0源码初探-helloword_idea-1
+
+
+1. 先梳理流程
 
 - 代码清单：DemoMain.java
 ```java
