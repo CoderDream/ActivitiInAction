@@ -7,7 +7,7 @@
 ### 3-4  Activiti6.0源码初探-模块介绍
 ### 3-5  Activiti6.0源码初探-activiti-app运行
 - 设置IDEA控制台：
-![](images\01_IDEA_Setting_Terminal.png)
+![](images/01_IDEA_Setting_Terminal.png)
 - 在控制台执行命令：
 ```
 D:\Java\GitHub\Activiti6>cd modules/activiti-ui/activiti-app
