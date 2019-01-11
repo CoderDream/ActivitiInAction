@@ -213,3 +213,50 @@ LOGGER.info("结束我们的程序");
 
 ### 3-10  Activiti6.0源码初探-helloword_idea-2
 ### 3-11  Activiti6.0源码初探-helloword_idea-3
+
+pom.xml设置
+
+
+- 增加parent
+```xml
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.0.RELEASE</version>
+    <relativePath></relativePath>
+</parent>
+```
+
+- 新增依赖
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter</artifactId>
+</dependency>
+```
+
+- 新增plugin
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
+```
+
+- 命令行运行
+```bash
+mvn spring-boot:run
+```
+- 打包
+```bash
+mvn package
+```
+
+- 通过Java命令执行
+```bath
+java -jar activiti6-helloworld-1.0-SNAPSHOT.jar
+```
