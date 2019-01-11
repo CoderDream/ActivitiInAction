@@ -255,7 +255,7 @@ mvn spring-boot:run
 ```bash
 mvn package
 ```
-- 打包结果
+- 打包过程
 ```shell
 $ mvn package
 [INFO] Scanning for projects...
@@ -264,28 +264,28 @@ $ mvn package
 [INFO] Building activiti6-helloworld 1.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO]
-[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ activiti                        6-helloworld ---
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ activiti6-helloworld ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Copying 0 resource
 [INFO] Copying 2 resources
 [INFO]
-[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ activiti6-hel                        loworld ---
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ activiti6-helloworld ---
 [INFO] Nothing to compile - all classes are up to date
 [INFO]
-[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @                         activiti6-helloworld ---
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @activiti6-helloworld ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory D:\Java\GitHub\ActivitiInAction\Chapt                        er03\activiti6-helloworld\src\test\resources
+[INFO] skip non existing resourceDirectory D:\Java\GitHub\ActivitiInAction\Chapter03\activiti6-helloworld\src\test\resources
 [INFO]
-[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ activ                        iti6-helloworld ---
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ activiti6-helloworld ---
 [INFO] Nothing to compile - all classes are up to date
 [INFO]
-[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ activiti6-helloworld                         ---
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ activiti6-helloworld ---
 [INFO] No tests to run.
 [INFO]
 [INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ activiti6-helloworld ---
-[INFO] Building jar: D:\Java\GitHub\ActivitiInAction\Chapter03\activiti6-hellowo                        rld\target\activiti6-helloworld-1.0-SNAPSHOT.jar
+[INFO] Building jar: D:\Java\GitHub\ActivitiInAction\Chapter03\activiti6-helloworld\target\activiti6-helloworld-1.0-SNAPSHOT.jar
 [INFO]
-[INFO] --- spring-boot-maven-plugin:2.0.0.RELEASE:repackage (default) @ activiti                        6-helloworld ---
+[INFO] --- spring-boot-maven-plugin:2.0.0.RELEASE:repackage (default) @ activiti6-helloworld ---
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
@@ -293,23 +293,12 @@ $ mvn package
 [INFO] Finished at: 2019-01-11T09:32:41+08:00
 [INFO] Final Memory: 22M/267M
 [INFO] ------------------------------------------------------------------------
+```
 
-Admin@Admin-PC MINGW64 /d/Java/GitHub/ActivitiInAction/Chapter03/activiti6-hello                        world (master)
-$ ls
-pom.xml  src  target
-
-Admin@Admin-PC MINGW64 /d/Java/GitHub/ActivitiInAction/Chapter03/activiti6-hello                        world (master)
+- 查看打包结果
+```
+Admin@Admin-PC MINGW64 /d/Java/GitHub/ActivitiInAction/Chapter03/activiti6-helloworld (master)
 $ cd target
-
-Admin@Admin-PC MINGW64 /d/Java/GitHub/ActivitiInAction/Chapter03/activiti6-hello                        world/target (master)
-$ ls
-activiti6-helloworld-1.0-SNAPSHOT.jar           generated-sources  maven-status
-activiti6-helloworld-1.0-SNAPSHOT.jar.original  logs
-classes                                         maven-archiver
-
-Admin@Admin-PC MINGW64 /d/Java/GitHub/ActivitiInAction/Chapter03/activiti6-hello                        world/target (master)
-$ la
-bash: la: command not found
 
 Admin@Admin-PC MINGW64 /d/Java/GitHub/ActivitiInAction/Chapter03/activiti6-helloworld/target (master)
 $ ll
