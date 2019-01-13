@@ -76,7 +76,7 @@ public class DemoMain {
         for (FormProperty property : formProperties) {
             String line = null;
             if (StringFormType.class.isInstance(property.getType())) {
-                LOGGER.info("请输入 {} ?", property.getName());
+                LOGGER.info("请输入 {} ？", property.getName());
                 line = scanner.nextLine();
                 variables.put(property.getId(), line);
             } else if (DateFormType.class.isInstance(property.getType())) {
@@ -86,9 +86,9 @@ public class DemoMain {
                 Date date = dateFormat.parse(line);
                 variables.put(property.getId(), date);
             } else {
-                LOGGER.info("类型暂不支持  [{}] ?", property.getType());
+                LOGGER.info("类型暂不支持  [{}] ", property.getType());
             }
-            LOGGER.info("您输入的内容是  [{}] ?", line);
+            LOGGER.info("您输入的内容是  [{}] ：", line);
         }
         return variables;
     }
