@@ -1,16 +1,16 @@
-package ${package};
+package com.coderdream;
 
 import com.google.common.collect.Maps;
-import com.coderdream.activiti.engine.*;
-import com.coderdream.activiti.engine.form.FormProperty;
-import com.coderdream.activiti.engine.form.TaskFormData;
-import com.coderdream.activiti.engine.impl.form.DateFormType;
-import com.coderdream.activiti.engine.impl.form.StringFormType;
-import com.coderdream.activiti.engine.repository.Deployment;
-import com.coderdream.activiti.engine.repository.DeploymentBuilder;
-import com.coderdream.activiti.engine.repository.ProcessDefinition;
-import com.coderdream.activiti.engine.runtime.ProcessInstance;
-import com.coderdream.activiti.engine.task.Task;
+import org.activiti.engine.*;
+import org.activiti.engine.form.FormProperty;
+import org.activiti.engine.form.TaskFormData;
+import org.activiti.engine.impl.form.DateFormType;
+import org.activiti.engine.impl.form.StringFormType;
+import org.activiti.engine.repository.Deployment;
+import org.activiti.engine.repository.DeploymentBuilder;
+import org.activiti.engine.repository.ProcessDefinition;
+import org.activiti.engine.runtime.ProcessInstance;
+import org.activiti.engine.task.Task;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

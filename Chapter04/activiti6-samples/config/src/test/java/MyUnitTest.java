@@ -1,8 +1,8 @@
 package ${package};
-import com.coderdream.activiti.engine.runtime.ProcessInstance;
-import com.coderdream.activiti.engine.task.Task;
-import com.coderdream.activiti.engine.test.ActivitiRule;
-import com.coderdream.activiti.engine.test.Deployment;
+import org.activiti.engine.runtime.ProcessInstance;
+import org.activiti.engine.task.Task;
+import org.activiti.engine.test.ActivitiRule;
+import org.activiti.engine.test.Deployment;
 import org.junit.Rule;
 import org.junit.Test;
 
