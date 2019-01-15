@@ -114,3 +114,9 @@ Activiti6.0工作流引擎深度解析与实战
 
 课程介绍：[链接](https://blog.csdn.net/weixin_43121468/article/details/82347026)
 网盘链接：https://pan.baidu.com/s/1fYddxHp94g12fMBu4I__Ww 提取码：aaaz
+
+### 参考
+
+1. [fhqscfss/activiti-test](https://github.com/fhqscfss/activiti-test)
+2. [chandler1142/activiti-study](https://github.com/chandler1142/activiti-study)
+3. [shengjie8329/activiti-helloword](https://github.com/shengjie8329/activiti-helloword)
