@@ -27,7 +27,7 @@ public void testConfig2() {
 configuration = org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration@2beee7ff
 configuration = org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration@366647c2
 ```
-
+- 流程引擎配置的继承关系
 ![](images/0401_ProcessEngineConfiguration.png)
 ### 4-3  创建流程引擎配置-archetype
 ### 4-4  数据库配置-dbconfig
