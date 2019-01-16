@@ -11,7 +11,7 @@
 ![](images/0401_Add_Archetype.png)
 4. 根据脚手架创建模块
 ![](images/0402_Create_From_Archetype.png)
-
+5. 新建测试文件，路径 activiti6-samples\config\src\test\java\com\coderdream\config，名称 ConfigTest.java：
 - 代码清单：ConfigTest.java
 ```java
 @Test
