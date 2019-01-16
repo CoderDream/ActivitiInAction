@@ -6,11 +6,12 @@
 
 
 1. 新建Maven空项目activiti-samples
-2. 给项目新增Module，名称为config
+2. 给项目新增Module，名称为config  
+![](images/0401_Project_Structrue.png)
 3. 新增自定义脚手架  
-![](images/0401_Add_Archetype.png)
+![](images/0402_Add_Archetype.png)
 4. 根据脚手架创建模块  
-![](images/0402_Create_From_Archetype.png)
+![](images/0403_Create_From_Archetype.png)
 5. 新建测试文件，路径 activiti6-samples\config\src\test\java\com\coderdream\config，名称 ConfigTest.java：
 - 代码清单：ConfigTest.java
 ```java
@@ -37,7 +38,7 @@ configuration = org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfigu
 configuration = org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration@366647c2
 ```
 - 流程引擎配置的继承关系                                                                                                                                                                    
-![](images/0403_ProcessEngineConfiguration.png)
+![](images/0404_ProcessEngineConfiguration.png)
 
 ### 4-3  创建流程引擎配置-archetype
 ### 4-4  数据库配置-dbconfig
