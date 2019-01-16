@@ -3,16 +3,14 @@
 ### 4-1  本章概述
 ### 4-2  创建流程引擎配置-config_samples
 
-
-
 1. 新建Maven空项目activiti-samples
 2. 给项目新增Module，名称为config  
-![](images/0401_Project_Structrue.png)
 3. 新增自定义脚手架  
 ![](images/0402_Add_Archetype.png)
 4. 根据脚手架创建模块  
 ![](images/0403_Create_From_Archetype.png)
-5. 新建测试文件，路径 activiti6-samples\config\src\test\java\com\coderdream\config，名称 ConfigTest.java：
+5. 新建测试文件，路径 activiti6-samples\config\src\test\java\com\coderdream\config，名称 ConfigTest.java：  
+![](images/0401_Project_Structrue.png)
 - 代码清单：ConfigTest.java
 ```java
 @Test
