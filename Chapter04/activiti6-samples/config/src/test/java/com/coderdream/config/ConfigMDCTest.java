@@ -19,13 +19,27 @@ public class ConfigMDCTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigMDCTest.class);
 
     @Rule
-    public ActivitiRule activitiRule = new ActivitiRule();
+    public ActivitiRule activitiRule = new ActivitiRule("activiti_mdc.cfg.xml");
 
     @Test
     @Deployment(resources = {"my-process.bpmn20.xml"})
     public void test() {
         // 打开MDC开关
         LogMDC.setMDCEnabled(true);
+        ProcessInstance processInstance = activitiRule.getRuntimeService()
+                .startProcessInstanceByKey("my-process");
+        assertNotNull(processInstance);
+
+        Task task = activitiRule.getTaskService().createTaskQuery().singleResult();
+        assertEquals("Activiti is awesome!", task.getName());
+
+        // 继续执行流程
+        activitiRule.getTaskService().complete(task.getId());
+    }
+
+    @Test
+    @Deployment(resources = {"my-process_mdcerror.bpmn20.xml"})
+    public void test2() {
         ProcessInstance processInstance = activitiRule.getRuntimeService()
                 .startProcessInstanceByKey("my-process");
         assertNotNull(processInstance);
