@@ -88,6 +88,16 @@ Process finished with exit code 0
 ![](images/0406_06.jpg)
 
 ### 4-7  日志记录配置-logging_mdc
+
+
+```
+15:32:05.953 [main] [ERROR] Error while closing command context ProcessDefinitionId=my-process:1:3     
+executionId=5 mdcProcessInstanceId= mdcBusinessKey= o.a.e.i.i.CommandContext.logException:122
+java.lang.RuntimeException: only test
+	at com.coderdream.delegate.MDCErrorDelegate.execute(MDCErrorDelegate.java:16)
+```
+
+
 ### 4-8  历史记录配置-history-1
 ### 4-9  历史记录配置-history-2
 ### 4-10  事件处理及监听器配置-eventlog
@@ -101,6 +111,9 @@ Process finished with exit code 0
 ### 4-18  Activiti与spring集成-2
 ### 4-19  Activiti与spring集成-3
 
+## 参考网站：
+
 1. [fhqscfss/activiti-test](https://github.com/fhqscfss/activiti-test)
 2. [chandler1142/activiti-study](https://github.com/chandler1142/activiti-study)
 3. [shengjie8329/activiti-helloword](https://github.com/shengjie8329/activiti-helloword)
+4. [DestinyWang/activiti-sample](https://github.com/DestinyWang/activiti-sample)

@@ -5,10 +5,21 @@
     <property name="plain" value="%msg%n"/>
     <property name="std" value="%d{HH:mm:ss.SSS}[%thread][%-5level]%msg %X{user} %logger{10}.%M:%L%n"/>
     <property name="normal" value="%d{yyyy-MM-dd:HH:mm:ss.SSS}[%thread][%-5level] %logger{10}.%M:%L  %msg%n"/>
+
+    <!--
+     - MDC 配置:
+     - ProcessDefinitionId: 流程定义 id
+     - executionId:
+     - mdcProcessInstanceId: 流程实例 id
+     - mdcBusinessKey: 业务 key
+     -->
+    <property name="mdc" value="%d{HH:mm:ss.SSS} [%thread] [%level] %msg ProcessDefinitionId=%X{mdcProcessDefinitionID}
+    executionId=%X{mdcExecutionId} mdcProcessInstanceId=%X{mdcProcessInstanceId} mdcBusinessKey=%X{mdcBusinessKey} %logger{10}.%M:%L%n"/>
+
     <!-- 控制台输出 -->
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${plain}</pattern>
+            <pattern>${mdc}</pattern>
             <charset>${encoding}</charset>
         </encoder>
     </appender>
