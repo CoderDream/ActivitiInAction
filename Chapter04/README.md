@@ -41,6 +41,38 @@ configuration = org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguratio
 ### 4-3  创建流程引擎配置-archetype
 ### 4-4  数据库配置-dbconfig
 ### 4-5  数据库配置-dbconfig_code
+
+```java
+@Test
+public void testConfig1() {
+    ProcessEngineConfiguration configuration = ProcessEngineConfiguration
+            .createProcessEngineConfigurationFromResourceDefault();
+
+    LOGGER.info("configuration = {}", configuration);
+    ProcessEngine processEngine = configuration.buildProcessEngine();
+    LOGGER.info("获取流程引擎 {}", processEngine.getName());
+    processEngine.close();
+}
+```
+
+
+```
+Loading XML bean definitions from class path resource [activiti.cfg.xml]
+configuration = org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration@6a6afff2
+Activiti 5 compatibility handler implementation not found or error during instantiation : org.activiti.compatibility.DefaultActiviti5CompatibilityHandler. Activiti 5 backwards compatibility disabled.
+performing create on engine with resource org/activiti/db/create/activiti.h2.create.engine.sql
+performing create on history with resource org/activiti/db/create/activiti.h2.create.history.sql
+performing create on identity with resource org/activiti/db/create/activiti.h2.create.identity.sql
+ProcessEngine default created
+获取流程引擎 default
+performing drop on engine with resource org/activiti/db/drop/activiti.h2.drop.engine.sql
+performing drop on history with resource org/activiti/db/drop/activiti.h2.drop.history.sql
+performing drop on identity with resource org/activiti/db/drop/activiti.h2.drop.identity.sql
+
+Process finished with exit code 0
+```
+
+
 ### 4-6  日志记录配置-logging
 ### 4-7  日志记录配置-logging_mdc
 ### 4-8  历史记录配置-history-1

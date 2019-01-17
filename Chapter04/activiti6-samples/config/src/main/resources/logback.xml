@@ -27,7 +27,7 @@
         </encoder>
     </appender>
     <logger name="root">
-        <level value="ERROR"/>
+        <level value="INFO"/>
     </logger>
     <logger name="com.coderdream">
         <level value="INFO"/>
