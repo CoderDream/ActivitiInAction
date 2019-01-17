@@ -139,7 +139,7 @@ public class MDCErrorDelegate implements JavaDelegate {
 ```
 
 - 代码清单（片段）：logback.xml
-```
+```xml
     <!--
      - MDC 配置:
      - ProcessDefinitionId: 流程定义 id
@@ -201,7 +201,7 @@ java.lang.RuntimeException: only test
 	at com.coderdream.delegate.MDCErrorDelegate.execute(MDCErrorDelegate.java:16)
 ```
 
-** 拦截器方式**
+**拦截器方式**  
 
 1. 新增拦截器
 2. 新增配置文件
