@@ -74,6 +74,19 @@ Process finished with exit code 0
 
 
 ### 4-6  日志记录配置-logging
+
+![](images\0406_01.jpg)
+
+![](images\0406_02.jpg)
+
+![](images\0406_03.jpg)
+
+![](images\0406_04.jpg)
+
+![](images\0406_05.jpg)
+
+![](images\0406_06.jpg)
+
 ### 4-7  日志记录配置-logging_mdc
 ### 4-8  历史记录配置-history-1
 ### 4-9  历史记录配置-history-2
