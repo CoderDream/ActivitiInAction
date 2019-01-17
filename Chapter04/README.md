@@ -97,7 +97,7 @@ Process finished with exit code 0
 
 
 - 代码清单：MDCErrorDelegate.java
-```
+```java
 public class MDCErrorDelegate implements JavaDelegate {
 
     /** logger */
@@ -165,7 +165,7 @@ public class MDCErrorDelegate implements JavaDelegate {
 
 
 - 代码清单：ConfigMDCTest.java
-```
+```java
 public class ConfigMDCTest {
 
     /** logger */
