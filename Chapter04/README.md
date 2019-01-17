@@ -89,7 +89,111 @@ Process finished with exit code 0
 
 ### 4-7  日志记录配置-logging_mdc
 
+步骤：
+1. 创建代理；
+2. 修改流程文件；
+3. 修改logback文件
+3. 打开MDC
 
+
+- 代码清单：MDCErrorDelegate.java
+```
+public class MDCErrorDelegate implements JavaDelegate {
+
+    /** logger */
+    private static final Logger LOGGER = LoggerFactory.getLogger(MDCErrorDelegate.class);
+
+    @Override
+    public void execute(DelegateExecution execution) {
+        LOGGER.info("run MDCErrorDelegate");
+        throw new RuntimeException("only test");
+    }
+}
+
+```
+- 代码清单：my-process.bpmn20.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:activiti="http://activiti.org/bpmn"
+	xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+	xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema"
+	expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+
+	<process id="my-process">
+
+		<startEvent id="start" />
+		<sequenceFlow id="flow1" sourceRef="start" targetRef="someTask" />
+		
+		<!-- <userTask id="someTask" name="Activiti is awesome!" /> -->
+		<serviceTask id="someTask" activiti:class="com.coderdream.delegate.MDCErrorDelegate" />
+
+		<sequenceFlow id="flow2" sourceRef="someTask" targetRef="end" />
+
+		<endEvent id="end" />
+
+	</process>
+
+</definitions>
+```
+
+- 代码清单（片段）：logback.xml
+```
+    <!--
+     - MDC 配置:
+     - ProcessDefinitionId: 流程定义 id
+     - executionId:
+     - mdcProcessInstanceId: 流程实例 id
+     - mdcBusinessKey: 业务 key
+     -->
+    <property name="mdc" value="%d{HH:mm:ss.SSS} [%thread] [%level] %msg 
+	ProcessDefinitionId=%X{mdcProcessDefinitionID}    
+	executionId=%X{mdcExecutionId} 
+	mdcProcessInstanceId=%X{mdcProcessInstanceId} 
+	mdcBusinessKey=%X{mdcBusinessKey} 
+	%logger{10}.%M:%L%n"/>
+
+    <!-- 控制台输出 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${mdc}</pattern>
+            <charset>${encoding}</charset>
+        </encoder>
+    </appender>
+```
+
+
+- 代码清单：ConfigMDCTest.java
+```
+public class ConfigMDCTest {
+
+    /** logger */
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigMDCTest.class);
+
+    @Rule
+    public ActivitiRule activitiRule = new ActivitiRule();
+
+    @Test
+    @Deployment(resources = {"my-process.bpmn20.xml"})
+    public void test() {
+        // 打开MDC开关
+        LogMDC.setMDCEnabled(true);
+        ProcessInstance processInstance = activitiRule.getRuntimeService()
+                .startProcessInstanceByKey("my-process");
+        assertNotNull(processInstance);
+
+        Task task = activitiRule.getTaskService().createTaskQuery().singleResult();
+        assertEquals("Activiti is awesome!", task.getName());
+
+        // 继续执行流程
+        activitiRule.getTaskService().complete(task.getId());
+    }
+
+}
+```
+
+- 执行结果
 ```
 15:32:05.953 [main] [ERROR] Error while closing command context ProcessDefinitionId=my-process:1:3     
 executionId=5 mdcProcessInstanceId= mdcBusinessKey= o.a.e.i.i.CommandContext.logException:122
