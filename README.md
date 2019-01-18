@@ -31,7 +31,7 @@ Activiti6.0工作流引擎深度解析与实战
 - 4-6  日志记录配置-logging
 - 4-7  日志记录配置-logging_mdc
 - 4-8  历史记录配置-history-1
-- [4-9  历史记录配置-history-2](/Chapter0410)
+- [4-9  历史记录配置-history-2](/Chapter04/Chapter0410.md)
 - 4-10  事件处理及监听器配置-eventlog
 - 4-11  事件处理及监听器配置-eventLinstener-1
 - 4-12  事件处理及监听器配置-eventLinstener-2
