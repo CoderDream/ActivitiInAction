@@ -34,7 +34,7 @@ Activiti6.0工作流引擎深度解析与实战
 - [4-9  历史记录配置-history-2](/Chapter04/Chapter0410.md)
 - 4-10  事件处理及监听器配置-eventlog
 - 4-11  事件处理及监听器配置-eventLinstener-1
-- 4-12  事件处理及监听器配置-eventLinstener-2
+- [4-12  事件处理及监听器配置-eventLinstener-2](/Chapter04/Chapter0410.md)
 - 4-13  命令拦截器配置-command-1
 - 4-14  命令拦截器配置-command-2
 - 4-15  作业执行器配置-job-1
