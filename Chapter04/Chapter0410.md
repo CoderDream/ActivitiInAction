@@ -3,8 +3,8 @@
 
 ### 最佳实践
 
-1. 新建配置文件activiti_eventlog.cfg.xml
-2. 新增测试类ConfigEventLogTest
+1. 新建配置文件activiti_eventlog.cfg.xml，设置 enableDatabaseEventLogging 为 true；
+2. 新增测试类 ConfigEventLogTest，打印事件日志
 
 - 代码清单1：activiti_eventlog.cfg.xml
 ```xml
