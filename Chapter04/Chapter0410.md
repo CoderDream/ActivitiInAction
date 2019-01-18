@@ -75,17 +75,17 @@ Process finished with exit code 0
 
 ### 代码分析
 
-1. 在 ProcessEngineConfigurationImpl 的 setEnableDatabaseEventLogging 进行设置
+1. 在配置文件中设置的值，会在 ProcessEngineConfigurationImpl 的 setEnableDatabaseEventLogging 方法中生效：
 ![](images/041001_ProcessEngineConfigurationImpl.png)
 
-2. 如果设置为true，则在 initDatabaseEventLogging 方法中会新建一个 EventLogger 对象
+2. 如果设置为true，则在 initDatabaseEventLogging 方法中会新建一个 EventLogger 对象：
 ![](images/041002_initDatabaseEventLogging.png)
 
-3. EventLogger 的初始化动作
+3. EventLogger 的初始化动作：
 ![](images/041003_EventLogger.png)
 
-4. EventLogger 会新增 EventFlusher（DatabaseEventFlusher） 对象到 Close 监听器
+4. EventLogger 会新增 EventFlusher（DatabaseEventFlusher） 对象到 Close 监听器：
 ![](images/041004_addCloseListener.png)
 
-5. 在 DatabaseEventFlusher 的 close 方法中将记录插入数据库
+5. 在 DatabaseEventFlusher 的 close 方法中将记录插入数据库：
 ![](images/041005_insert.png)
